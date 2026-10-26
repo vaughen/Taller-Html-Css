@@ -9,6 +9,7 @@ body {
  background-color: #fff8e7;
  line-height: 1.6;
 }
+
 /* 2. Encabezado */
 .encabezado {
  background-color: #512da8;
@@ -23,6 +24,7 @@ body {
 .encabezado p {
  margin: 0;
 }
+
 /* 3. Contenido principal */
 .contenedor {
  width: min(900px, 92%);
@@ -31,6 +33,7 @@ body {
  grid-template-columns: repeat(1, minmax(0, 1fr));
  gap: 20px;
 }
+
 /* 4. Tarjetas */
 .tarjeta {
  background-color: white;
@@ -48,16 +51,29 @@ body {
  color: #176b73;
  margin-top: 0;
 }
+
 .enlace {
  display: inline-block;
  margin-top: 8px;
  color: #1456a0;
  font-weight: bold;
  text-decoration: none;
+ /* Mejora añadida: transición suave para el cambio de color y foco */
+ transition: color 0.2s ease, outline 0.2s ease;
 }
-.enlace:hover {
+
+/* Mejor de accesibilidad propuesta:
+   Se combina :hover y :focus-visible para que tanto el ratón 
+   como la navegación por teclado muestren un indicador claro de un boton
+   con enlace. */
+.enlace:hover,
+.enlace:focus-visible {
  color: purple;
+ outline: 3px solid #512da8;
+ outline-offset: 3px;
+ border-radius: 4px;
 }
+
 /* 5. Pie de página */
 .pie {
  text-align: center;
@@ -65,6 +81,7 @@ body {
  background-color: #dfe8f2;
  color: #33465c;
 }
+
 /* 6. Diseño para pantallas pequeñas */
 @media (max-width: 600px) {
  .contenedor {
